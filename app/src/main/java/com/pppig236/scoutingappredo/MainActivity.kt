@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity() {
 
         val buttonPerm = findViewById<Button>(R.id.btnRequest)
         // Button to check permissions states
-        showHide(buttonPerm)
-
         buttonPerm.setOnClickListener {
             managePermissions.checkPermissions()
             if (Environment.isExternalStorageManager()) {
@@ -52,11 +50,12 @@ class MainActivity : AppCompatActivity() {
                 intent.data = uri
                 startActivity(intent)
             }
+            showHide(buttonPerm)
         }
     }
 
     private fun showHide(view: View) {
-        view.visibility = if (managePermissions.isPermissionsGranted() == 0) {
+        view.visibility = if (view.visibility == View.VISIBLE) {
             View.INVISIBLE
         } else {
             View.VISIBLE

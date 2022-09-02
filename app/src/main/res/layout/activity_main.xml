@@ -16,7 +16,8 @@
             android:layout_height="73dp"
             android:gravity="center"
             android:text="@string/button_name"
-            android:translationY="550dp" />
+            android:translationY="660dp" />
+
         <Button
             android:id="@+id/scanner_view"
             android:layout_width="match_parent"

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ScoutingAppRedo</string>
     <string name="button_name">request permission\npress again to hide</string>
+    <string name="scanner_fragment">Click to open the scanner</string>
 </resources>

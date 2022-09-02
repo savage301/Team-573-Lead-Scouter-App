@@ -26,5 +26,4 @@
             android:translationY="550dp" />
     </FrameLayout>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>

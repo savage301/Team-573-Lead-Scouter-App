@@ -11,7 +11,6 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import java.io.File
 
-
 class MainActivity : AppCompatActivity() {
     private val permissionsRequestCode = 123
     private lateinit var managePermissions: ManagePermissions
@@ -29,9 +28,10 @@ class MainActivity : AppCompatActivity() {
         managePermissions = ManagePermissions(this, list, permissionsRequestCode)
 
         val buttonScanner = findViewById<Button>(R.id.scanner_view)
+        val fragment = ScannerFragment()
         buttonScanner.setOnClickListener {
-            val fragment = ScannerFragment()
             supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
+            showHide(buttonScanner)
         }
 
         val buttonPerm = findViewById<Button>(R.id.btnRequest)

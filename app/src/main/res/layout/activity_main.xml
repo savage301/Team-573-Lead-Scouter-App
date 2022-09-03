@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
     <FrameLayout
@@ -16,7 +17,8 @@
             android:layout_height="73dp"
             android:gravity="center"
             android:text="@string/button_name"
-            android:translationY="660dp" />
+            android:translationY="660dp"
+            tools:ignore="MissingConstraints" />
 
         <Button
             android:id="@+id/scanner_view"
@@ -24,7 +26,68 @@
             android:layout_height="73dp"
             android:gravity="center"
             android:text="@string/scanner_fragment"
-            android:translationY="550dp" />
+            android:translationY="550dp"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/table_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="288dp"
+            android:translationY="50dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
     </FrameLayout>
+
+    <TableLayout
+        android:id="@+id/table_heading_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow tools:ignore="UselessParent">
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_column="0"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/name"
+                android:textAlignment="center"
+                android:textColor="#000000" />
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_column="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingEnd="5dp"
+                android:text="@string/age"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                style="@style/table_header"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_column="2"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingEnd="5dp"
+                android:text="@string/designation"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                tools:ignore="RtlSymmetry" />
+        </TableRow>
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

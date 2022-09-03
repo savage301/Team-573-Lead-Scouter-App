@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/pppig/AndroidStudioProjects/ScoutingAppRedo/app/src/main/res/drawable/table_border.xml" value="0.164" />
         <entry key="..\:/Users/pppig/AndroidStudioProjects/ScoutingAppRedo/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/pppig/AndroidStudioProjects/ScoutingAppRedo/app/src/main/res/layout/fragment_scanner.xml" value="0.11548913043478261" />
+        <entry key="..\:/Users/pppig/AndroidStudioProjects/ScoutingAppRedo/app/src/main/res/layout/table_row_layout.xml" value="0.1651469098277609" />
       </map>
     </option>
   </component>

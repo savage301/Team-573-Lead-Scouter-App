@@ -33,8 +33,11 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
             showHide(buttonScanner)
         }
-
         val buttonPerm = findViewById<Button>(R.id.btnRequest)
+
+        if (managePermissions.isPermissionsGranted() == 0)
+            showHide(buttonPerm)
+
         // Button to check permissions states
         buttonPerm.setOnClickListener {
             managePermissions.checkPermissions()

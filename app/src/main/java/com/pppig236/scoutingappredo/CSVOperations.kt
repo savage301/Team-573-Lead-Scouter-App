@@ -10,8 +10,8 @@ class CSVOperations {
     fun createCsv(fileName: String) {
         val file = File(fileName)
 
-        // create a new file
-        file.writeText("")
+        // create a new file with headers
+        file.writeText("Match Number,Team Number,Score,Boolean,Comment")
     }
 
     fun appendCsv(fileName: String, text: String) {
@@ -20,7 +20,7 @@ class CSVOperations {
         file.appendText(text)
     }
 
-    fun readCsv(fileName: String): List<String> {
+    fun readCsv(fileName: String){
         val file = File(fileName)
         val rows: List<Map<String, String>> = csvReader().readAllWithHeader(file)
         for (row in rows) {
@@ -30,16 +30,5 @@ class CSVOperations {
             row["Boolean"]?.let { teamDataList.add(it) }
             row["Comment"]?.let { teamDataList.add(it) }
         }
-        return emptyList()
-    }
-
-    fun createCsvWithHeader(fileName: String) {
-        // create a new csv file with header
-        createCsv(fileName)
-        appendCsv(fileName, "Match Number,")
-        appendCsv(fileName, "Team Number,")
-        appendCsv(fileName, "Score,")
-        appendCsv(fileName, "Boolean,")
-        appendCsv(fileName, "Comment")
     }
 }

@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
                 cnt++
             } while (cnt < lim)
         } else {
-            csvOperations.createCsvWithHeader(constants.file)
+            csvOperations.createCsv(constants.file)
 
         }
     }

@@ -19,7 +19,6 @@
             android:text="@string/scanner_fragment"
             android:translationY="@dimen/_400sdp" />
 
-
         <Button
             android:id="@+id/table_view"
             android:layout_width="wrap_content"

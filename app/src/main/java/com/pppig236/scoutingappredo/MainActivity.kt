@@ -36,7 +36,13 @@ class MainActivity : AppCompatActivity() {
         val tableView = findViewById<Button>(R.id.table_view)
         val fragment = ScannerFragment()
         val headerLayout = findViewById<TableRow>(R.id.table_heading_layout)
+        val buttonDelete = findViewById<Button>(R.id.delete)
+
+        showHide(buttonDelete)
         showHide(tableView)
+
+        if (csvOperations.teamDataList.size / 5 != 0)
+            buttonDelete.visibility = View.VISIBLE
 
         buttonScanner.setOnClickListener {
             supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
@@ -44,8 +50,10 @@ class MainActivity : AppCompatActivity() {
             showHide(headerLayout)
             showHide(tableRecyclerView)
             showHide(tableView)
-
+            if (csvOperations.teamDataList.size / 5 != 0)
+                buttonDelete.visibility = View.VISIBLE
         }
+
         tableView.setOnClickListener {
             supportFragmentManager.beginTransaction().remove(fragment)
                 .commitAllowingStateLoss()
@@ -54,6 +62,16 @@ class MainActivity : AppCompatActivity() {
             showHide(tableRecyclerView)
             showHide(tableView)
             userList.clear() // make sure there are no duplicates
+            updateTable()
+            if (csvOperations.teamDataList.size / 5 != 0)
+                buttonDelete.visibility = View.VISIBLE
+        }
+
+        buttonDelete.setOnClickListener {
+            showHide(buttonDelete)
+            csvOperations.deleteCsv(constants.file)
+            createCsv()
+            userList.clear() // make sure there are no leftovers
             updateTable()
         }
     }
@@ -138,7 +156,6 @@ class MainActivity : AppCompatActivity() {
             updateTable()
         } else {
             csvOperations.createCsv(constants.file)
-
         }
     }
 }

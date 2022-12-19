@@ -33,4 +33,11 @@ class CSVOperations {
             }
         }
     }
+
+    fun deleteCsv(fileName: String) {
+        val file = File(fileName)
+        if (file.exists()) {
+            file.delete()
+        }
+    }
 }

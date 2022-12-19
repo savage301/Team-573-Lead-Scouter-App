@@ -20,7 +20,7 @@ class CSVOperations {
         file.appendText(text)
     }
 
-    fun readCsv(fileName: String){
+    fun readCsv(fileName: String) {
         val file = File(fileName)
         val rows: List<Map<String, String>> = csvReader().readAllWithHeader(file)
         for (row in rows) {

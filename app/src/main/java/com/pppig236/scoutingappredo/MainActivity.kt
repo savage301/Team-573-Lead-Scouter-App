@@ -96,19 +96,22 @@ class MainActivity : AppCompatActivity() {
             var i = 0
             var cnt = 0
             val lim = csvOperations.teamDataList.size / 5
-            do {
-                userList.add(
-                    User(
-                        csvOperations.teamDataList[i],
-                        csvOperations.teamDataList[i + 1],
-                        csvOperations.teamDataList[i + 2],
-                        csvOperations.teamDataList[i + 3],
-                        csvOperations.teamDataList[i + 4],
+
+            if (lim != 0) {
+                do {
+                    userList.add(
+                        User(
+                            csvOperations.teamDataList[i],
+                            csvOperations.teamDataList[i + 1],
+                            csvOperations.teamDataList[i + 2],
+                            csvOperations.teamDataList[i + 3],
+                            csvOperations.teamDataList[i + 4],
+                        )
                     )
-                )
-                i += 5
-                cnt++
-            } while (cnt < lim)
+                    i += 5
+                    cnt++
+                } while (cnt < lim)
+            }
         } else {
             csvOperations.createCsv(constants.file)
 

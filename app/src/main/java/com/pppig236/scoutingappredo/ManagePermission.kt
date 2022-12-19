@@ -18,7 +18,7 @@ class ManagePermissions(
         if (isPermissionsGranted() != PackageManager.PERMISSION_GRANTED) {
             showAlert()
         } else {
-            Toast.makeText(activity, "Permissions already granted.", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(activity, "Permissions already granted.", Toast.LENGTH_SHORT).show()
         }
     }
 

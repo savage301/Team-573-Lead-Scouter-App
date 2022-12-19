@@ -2,7 +2,9 @@
     <string name="app_name">ScoutingAppRedo</string>
     <string name="button_name">request permission\npress again to hide</string>
     <string name="scanner_fragment">Click to open the scanner</string>
-    <string name="name">Team Name</string>
-    <string name="age">Match Number</string>
-    <string name="designation">Score</string>
+    <string name="match">Match Number</string>
+    <string name="team">Team Number</string>
+    <string name="score">Score</string>
+    <string name="bool">Boolean</string>
+    <string name="comment">Comment</string>
 </resources>

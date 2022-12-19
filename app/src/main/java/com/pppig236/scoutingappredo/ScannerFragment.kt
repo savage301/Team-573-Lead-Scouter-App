@@ -13,6 +13,8 @@ import com.budiyev.android.codescanner.DecodeCallback
 class ScannerFragment : Fragment() {
 
     private lateinit var codeScanner: CodeScanner
+    private lateinit var csvOperations: CSVOperations
+    private lateinit var constants: Constants
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,13 +27,17 @@ class ScannerFragment : Fragment() {
         val scannerView = view.findViewById<CodeScannerView>(R.id.scanner_view)
         val activity = requireActivity()
         codeScanner = CodeScanner(activity, scannerView)
+        csvOperations = CSVOperations()
+        constants = Constants()
         codeScanner.decodeCallback = DecodeCallback {
             activity.runOnUiThread {
                 Toast.makeText(activity, it.text, Toast.LENGTH_LONG).show()
+                csvOperations.appendCsv(constants.file, "\n" + it.text)
             }
         }
         scannerView.setOnClickListener {
             codeScanner.startPreview()
+
         }
     }
 

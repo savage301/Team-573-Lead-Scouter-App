@@ -9,11 +9,10 @@ import android.os.Environment
 import android.provider.Settings
 import android.view.View
 import android.widget.Button
-import android.widget.TableLayout
+import android.widget.TableRow
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import java.io.File
 
 class MainActivity : AppCompatActivity() {
     private val permissionsRequestCode = 123
@@ -22,13 +21,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tableRecyclerView: RecyclerView
     private var userList = ArrayList<User>()
     private lateinit var tableRowAdapter: TableRowAdapter
-    private lateinit var user: User
+    private lateinit var csvOperations: CSVOperations
+    private lateinit var constants: Constants
 
     @SuppressLint("CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        userList.add(User("573", 1, 100))
+
+        initPermissions()
+        createCsv()
 
         tableRecyclerView = findViewById(R.id.table_recycler_view)
         tableRowAdapter = TableRowAdapter(userList)
@@ -36,45 +38,14 @@ class MainActivity : AppCompatActivity() {
         tableRecyclerView.layoutManager = LinearLayoutManager(this)
         tableRecyclerView.adapter = tableRowAdapter
 
-        // Initialize a list of required permissions to request runtime
-        val list = listOf(
-            Manifest.permission.CAMERA,
-            Manifest.permission.READ_EXTERNAL_STORAGE
-        )
-
-        // Initialize a new instance of ManagePermissions class
-        managePermissions = ManagePermissions(this, list, permissionsRequestCode)
-
         val buttonScanner = findViewById<Button>(R.id.scanner_view)
         val fragment = ScannerFragment()
-        val headerLayout = findViewById<TableLayout>(R.id.table_heading_layout)
+        val headerLayout = findViewById<TableRow>(R.id.table_heading_layout)
         buttonScanner.setOnClickListener {
             supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
             showHide(buttonScanner)
             showHide(headerLayout)
             showHide(tableRecyclerView)
-        }
-        val buttonPerm = findViewById<Button>(R.id.btnRequest)
-
-        if (managePermissions.isPermissionsGranted() == 0)
-            showHide(buttonPerm)
-
-        // Button to check permissions states
-        buttonPerm.setOnClickListener {
-            managePermissions.checkPermissions()
-            if (Environment.isExternalStorageManager()) {
-                // create a new csv file
-                createCsv(Environment.getExternalStorageDirectory().path + "/Download/data.csv")
-                // If you don't have access, launch a new activity to show the user the system's dialog
-                // to allow access to the external storage
-            } else {
-                val intent = Intent()
-                intent.action = Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION
-                val uri: Uri = Uri.fromParts("package", this.packageName, null)
-                intent.data = uri
-                startActivity(intent)
-            }
-            showHide(buttonPerm)
         }
     }
 
@@ -86,17 +57,61 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun createCsv(fileName: String) {
-        val file = File(fileName)
+    private fun initPermissions() {
 
-        // create a new file
-        file.writeText("")
+        // Initialize a list of required permissions to request runtime
+        val list = listOf(
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
+
+        // Initialize a new instance of ManagePermissions class
+        managePermissions = ManagePermissions(this, list, permissionsRequestCode)
+
+        managePermissions.checkPermissions()
+        if (Environment.isExternalStorageManager()) {
+            // If you don't have access, launch a new activity to show the user the system's dialog
+            // to allow access to the external storage
+        } else {
+            val intent = Intent()
+            intent.action = Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION
+            val uri: Uri = Uri.fromParts("package", this.packageName, null)
+            intent.data = uri
+            startActivity(intent)
+        }
     }
 
-    private fun appendCsv(fileName: String, text: String) {
-        val file = File(fileName)
+    private fun createCsv() {
+        constants = Constants()
+        csvOperations = CSVOperations()
 
-        file.appendText(text)
+        val createdFile = constants.fileClass.exists()
+
+        // read the csv from the saved file
+        // and add it to the userList
+        if (createdFile) {
+            csvOperations.readCsv(constants.file)
+            // add a while loop
+            var i = 0
+            var cnt = 0
+            val lim = csvOperations.teamDataList.size / 5
+            do {
+                userList.add(
+                    User(
+                        csvOperations.teamDataList[i],
+                        csvOperations.teamDataList[i + 1],
+                        csvOperations.teamDataList[i + 2],
+                        csvOperations.teamDataList[i + 3],
+                        csvOperations.teamDataList[i + 4],
+                    )
+                )
+                i += 5
+                cnt++
+            } while (cnt < lim)
+        } else {
+            csvOperations.createCsvWithHeader(constants.file)
+
+        }
     }
-
 }

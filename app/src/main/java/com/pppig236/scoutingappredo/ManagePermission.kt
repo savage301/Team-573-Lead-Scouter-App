@@ -23,7 +23,7 @@ class ManagePermissions(
     }
 
     // Check permissions status
-    fun isPermissionsGranted(): Int {
+    private fun isPermissionsGranted(): Int {
         // PERMISSION_GRANTED : Constant Value: 0
         // PERMISSION_DENIED : Constant Value: -1
         var counter = 0
@@ -50,7 +50,7 @@ class ManagePermissions(
         val builder = AlertDialog.Builder(activity)
         builder.setTitle("Need permission(s)")
         builder.setMessage("Some permissions are required to do the task.")
-        builder.setPositiveButton("OK", { dialog, which -> requestPermissions() })
+        builder.setPositiveButton("OK") { _, _ -> requestPermissions() }
         builder.setNeutralButton("Cancel", null)
         val dialog = builder.create()
         dialog.show()

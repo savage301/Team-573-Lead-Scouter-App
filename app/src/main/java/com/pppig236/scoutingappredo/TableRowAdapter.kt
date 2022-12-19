@@ -16,9 +16,11 @@ class TableRowAdapter(private var userArrayList: ArrayList<User>) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.tvUserName.text = userArrayList[i].name
-        viewHolder.tvAge.text = userArrayList[i].matchNumber.toString()
-        viewHolder.tvDesignation.text = userArrayList[i].score.toString()
+        viewHolder.tvMatch.text = userArrayList[i].name
+        viewHolder.tvTeam.text = userArrayList[i].matchNumber
+        viewHolder.tvScore.text = userArrayList[i].score
+        viewHolder.tvBool.text = userArrayList[i].bool
+        viewHolder.tvComment.text = userArrayList[i].comment
     }
 
     override fun getItemCount(): Int {
@@ -26,8 +28,10 @@ class TableRowAdapter(private var userArrayList: ArrayList<User>) :
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvUserName: TextView = itemView.findViewById(R.id.tv_user_name)
-        val tvAge: TextView = itemView.findViewById(R.id.tv_user_age)
-        val tvDesignation: TextView = itemView.findViewById(R.id.tv_user_designation)
+        val tvMatch: TextView = itemView.findViewById(R.id.tv_user_match)
+        val tvTeam: TextView = itemView.findViewById(R.id.tv_user_team)
+        val tvScore: TextView = itemView.findViewById(R.id.tv_user_score)
+        val tvBool: TextView = itemView.findViewById(R.id.tv_user_bool)
+        val tvComment: TextView = itemView.findViewById(R.id.tv_user_comment)
     }
 }

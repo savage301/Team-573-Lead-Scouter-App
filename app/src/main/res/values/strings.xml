@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">ScoutingAppRedo</string>
-    <string name="button_name">request permission\npress again to hide</string>
+    <string name="app_name">ScoutingAppRemake</string>
     <string name="scanner_fragment">Click to open the scanner</string>
     <string name="match">Match Number</string>
     <string name="team">Team Number</string>
     <string name="score">Score</string>
     <string name="bool">Boolean</string>
     <string name="comment">Comment</string>
+    <string name="table_view">Click to go back to table view</string>
 </resources>

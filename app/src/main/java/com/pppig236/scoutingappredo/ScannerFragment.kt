@@ -10,6 +10,7 @@ import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 
+
 class ScannerFragment : Fragment() {
 
     private lateinit var codeScanner: CodeScanner
@@ -37,7 +38,6 @@ class ScannerFragment : Fragment() {
         }
         scannerView.setOnClickListener {
             codeScanner.startPreview()
-
         }
     }
 

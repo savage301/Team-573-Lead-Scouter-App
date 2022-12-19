@@ -24,4 +24,5 @@
         app:maskColor="#77000000">
 
     </com.budiyev.android.codescanner.CodeScannerView>
+
 </FrameLayout>

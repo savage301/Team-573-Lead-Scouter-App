@@ -32,20 +32,30 @@ class MainActivity : AppCompatActivity() {
         initPermissions()
         createCsv()
 
-        tableRecyclerView = findViewById(R.id.table_recycler_view)
-        tableRowAdapter = TableRowAdapter(userList)
-
-        tableRecyclerView.layoutManager = LinearLayoutManager(this)
-        tableRecyclerView.adapter = tableRowAdapter
-
         val buttonScanner = findViewById<Button>(R.id.scanner_view)
+        val tableView = findViewById<Button>(R.id.table_view)
         val fragment = ScannerFragment()
         val headerLayout = findViewById<TableRow>(R.id.table_heading_layout)
+        showHide(tableView)
+
         buttonScanner.setOnClickListener {
             supportFragmentManager.beginTransaction().replace(R.id.frameLayout, fragment).commit()
             showHide(buttonScanner)
             showHide(headerLayout)
             showHide(tableRecyclerView)
+            showHide(tableView)
+
+        }
+        tableView.setOnClickListener {
+
+            supportFragmentManager.beginTransaction().remove(fragment)
+                .commitAllowingStateLoss()
+            showHide(buttonScanner)
+            showHide(headerLayout)
+            showHide(tableRecyclerView)
+            showHide(tableView)
+            createCsv()
+
         }
     }
 
@@ -82,36 +92,53 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun updateTable() {
+
+
+        tableRowAdapter = TableRowAdapter(userList)
+
+        tableRecyclerView.layoutManager = LinearLayoutManager(this)
+        tableRecyclerView.adapter = tableRowAdapter
+    }
+
+    private fun readCsvToList() {
+        constants = Constants()
+        csvOperations = CSVOperations()
+        csvOperations.readCsv(constants.file)
+        // add a while loop
+        var i = 0
+        var cnt = 0
+        val lim = csvOperations.teamDataList.size / 5
+
+        if (lim != 0) {
+            do {
+                userList.add(
+                    User(
+                        csvOperations.teamDataList[i],
+                        csvOperations.teamDataList[i + 1],
+                        csvOperations.teamDataList[i + 2],
+                        csvOperations.teamDataList[i + 3],
+                        csvOperations.teamDataList[i + 4],
+                    )
+                )
+                i += 5
+                cnt++
+            } while (cnt < lim)
+        }
+    }
+
     private fun createCsv() {
         constants = Constants()
         csvOperations = CSVOperations()
+        tableRecyclerView = findViewById(R.id.table_recycler_view)
 
         val createdFile = constants.fileClass.exists()
 
         // read the csv from the saved file
         // and add it to the userList
         if (createdFile) {
-            csvOperations.readCsv(constants.file)
-            // add a while loop
-            var i = 0
-            var cnt = 0
-            val lim = csvOperations.teamDataList.size / 5
-
-            if (lim != 0) {
-                do {
-                    userList.add(
-                        User(
-                            csvOperations.teamDataList[i],
-                            csvOperations.teamDataList[i + 1],
-                            csvOperations.teamDataList[i + 2],
-                            csvOperations.teamDataList[i + 3],
-                            csvOperations.teamDataList[i + 4],
-                        )
-                    )
-                    i += 5
-                    cnt++
-                } while (cnt < lim)
-            }
+            readCsvToList()
+            updateTable()
         } else {
             csvOperations.createCsv(constants.file)
 

@@ -15,11 +15,18 @@
             android:id="@+id/scanner_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_margin="@dimen/_43sdp"
             android:text="@string/scanner_fragment"
-            android:translationY="300dp" />
-    </FrameLayout>
+            android:translationY="@dimen/_400sdp" />
 
+
+        <Button
+            android:id="@+id/table_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_43sdp"
+            android:text="@string/table_view" />
+    </FrameLayout>
 
     <TableRow
 
@@ -103,10 +110,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/table_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_width="394dp"
+        android:layout_height="433dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/table_heading_layout">

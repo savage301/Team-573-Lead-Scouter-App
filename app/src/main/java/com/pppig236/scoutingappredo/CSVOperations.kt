@@ -22,13 +22,15 @@ class CSVOperations {
 
     fun readCsv(fileName: String) {
         val file = File(fileName)
-        val rows: List<Map<String, String>> = csvReader().readAllWithHeader(file)
-        for (row in rows) {
-            row["Match Number"]?.let { teamDataList.add(it) }
-            row["Team Number"]?.let { teamDataList.add(it) }
-            row["Score"]?.let { teamDataList.add(it) }
-            row["Boolean"]?.let { teamDataList.add(it) }
-            row["Comment"]?.let { teamDataList.add(it) }
+        if (file.exists()) {
+            val rows: List<Map<String, String>> = csvReader().readAllWithHeader(file)
+            for (row in rows) {
+                row["Match Number"]?.let { teamDataList.add(it) }
+                row["Team Number"]?.let { teamDataList.add(it) }
+                row["Score"]?.let { teamDataList.add(it) }
+                row["Boolean"]?.let { teamDataList.add(it) }
+                row["Comment"]?.let { teamDataList.add(it) }
+            }
         }
     }
 }

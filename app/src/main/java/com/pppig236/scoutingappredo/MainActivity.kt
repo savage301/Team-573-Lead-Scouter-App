@@ -47,15 +47,14 @@ class MainActivity : AppCompatActivity() {
 
         }
         tableView.setOnClickListener {
-
             supportFragmentManager.beginTransaction().remove(fragment)
                 .commitAllowingStateLoss()
             showHide(buttonScanner)
             showHide(headerLayout)
             showHide(tableRecyclerView)
             showHide(tableView)
-            createCsv()
-
+            userList.clear() // make sure there are no duplicates
+            updateTable()
         }
     }
 
@@ -93,8 +92,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateTable() {
-
-
+        readCsvToList()
         tableRowAdapter = TableRowAdapter(userList)
 
         tableRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -137,7 +135,6 @@ class MainActivity : AppCompatActivity() {
         // read the csv from the saved file
         // and add it to the userList
         if (createdFile) {
-            readCsvToList()
             updateTable()
         } else {
             csvOperations.createCsv(constants.file)

@@ -11,6 +11,7 @@ class CSVOperations {
         val file = File(fileName)
 
         // create a new file with headers
+        // Update this
         file.writeText("Match Number,Team Number,Score,Boolean,Comment")
     }
 
@@ -25,6 +26,7 @@ class CSVOperations {
         if (file.exists()) {
             val rows: List<Map<String, String>> = csvReader().readAllWithHeader(file)
             for (row in rows) {
+                // Update this
                 row["Match Number"]?.let { teamDataList.add(it) }
                 row["Team Number"]?.let { teamDataList.add(it) }
                 row["Score"]?.let { teamDataList.add(it) }

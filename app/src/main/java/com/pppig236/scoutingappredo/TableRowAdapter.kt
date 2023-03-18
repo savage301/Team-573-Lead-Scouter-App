@@ -15,6 +15,7 @@ class TableRowAdapter(private var userArrayList: ArrayList<User>) :
         return ViewHolder(v)
     }
 
+    // Update this
     override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
         viewHolder.tvMatch.text = userArrayList[i].name
         viewHolder.tvTeam.text = userArrayList[i].matchNumber
@@ -27,6 +28,7 @@ class TableRowAdapter(private var userArrayList: ArrayList<User>) :
         return userArrayList.size
     }
 
+    // Update this
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvMatch: TextView = itemView.findViewById(R.id.tv_user_match)
         val tvTeam: TextView = itemView.findViewById(R.id.tv_user_team)

@@ -25,13 +25,13 @@ class CSVOperations {
         val file = File(fileName)
         if (file.exists()) {
             val rows: List<Map<String, String>> = csvReader().readAllWithHeader(file)
-            for (row in rows) {
+            for (column in rows) {
                 // Update this
-                row["Match Number"]?.let { teamDataList.add(it) }
-                row["Team Number"]?.let { teamDataList.add(it) }
-                row["Score"]?.let { teamDataList.add(it) }
-                row["Boolean"]?.let { teamDataList.add(it) }
-                row["Comment"]?.let { teamDataList.add(it) }
+                column["Match Number"]?.let { teamDataList.add(it) }
+                column["Team Number"]?.let { teamDataList.add(it) }
+                column["Score"]?.let { teamDataList.add(it) }
+                column["Boolean"]?.let { teamDataList.add(it) }
+                column["Comment"]?.let { teamDataList.add(it) }
             }
         }
     }

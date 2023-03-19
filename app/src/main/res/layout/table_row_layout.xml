@@ -26,19 +26,172 @@
             android:textAppearance="?attr/textAppearanceHeadline5" />
 
         <TextView
-            android:id="@+id/tv_user_score"
+            android:id="@+id/tv_user_def"
             style="@style/table_row_item"
             android:layout_width="0dp"
-            android:layout_column="2"
+            android:layout_column="0"
             android:layout_margin="1dp"
             android:layout_weight="1"
             android:textAppearance="?attr/textAppearanceHeadline5" />
 
         <TextView
-            android:id="@+id/tv_user_bool"
+            android:id="@+id/tv_user_rbd"
             style="@style/table_row_item"
             android:layout_width="0dp"
-            android:layout_column="3"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_pen"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_tcs"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_lnk"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_tlcu"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_tmcu"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_thcu"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_tlco"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_tmco"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_thco"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_acs"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_alcu"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_amcu"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_ahcu"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_alco"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_amco"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_ahco"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceHeadline5" />
+
+        <TextView
+            android:id="@+id/tv_user_alliance"
+            style="@style/table_row_item"
+            android:layout_width="0dp"
+            android:layout_column="0"
             android:layout_margin="1dp"
             android:layout_weight="1"
             android:textAppearance="?attr/textAppearanceHeadline5" />

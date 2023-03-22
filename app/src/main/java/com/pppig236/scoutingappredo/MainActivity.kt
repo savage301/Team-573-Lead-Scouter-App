@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         showHide(buttonDelete)
         showHide(tableView)
 
-        if (csvOperations.teamDataList.size / 21 != 0)
+        if (csvOperations.teamDataList.size / 3 != 0)
             buttonDelete.visibility = View.VISIBLE
 
         buttonScanner.setOnClickListener {
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             showHide(headerLayout)
             showHide(tableRecyclerView)
             showHide(tableView)
-            if (csvOperations.teamDataList.size / 21 != 0)
+            if (csvOperations.teamDataList.size / 3 != 0)
                 buttonDelete.visibility = View.VISIBLE
         }
 
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             showHide(tableView)
             userList.clear() // make sure there are no duplicates
             updateTable()
-            if (csvOperations.teamDataList.size / 21 != 0)
+            if (csvOperations.teamDataList.size / 3 != 0)
                 buttonDelete.visibility = View.VISIBLE
         }
 
@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
         // add a while loop
         var i = 0
         var cnt = 0
-        val lim = csvOperations.teamDataList.size / 21
+        val lim = csvOperations.teamDataList.size / 3
 
         if (lim != 0) {
             do {
@@ -134,28 +134,9 @@ class MainActivity : AppCompatActivity() {
                         csvOperations.teamDataList[i],
                         csvOperations.teamDataList[i + 1],
                         csvOperations.teamDataList[i + 2],
-                        csvOperations.teamDataList[i + 3],
-                        csvOperations.teamDataList[i + 4],
-                        csvOperations.teamDataList[i + 5],
-                        csvOperations.teamDataList[i + 6],
-                        csvOperations.teamDataList[i + 7],
-                        csvOperations.teamDataList[i + 8],
-                        csvOperations.teamDataList[i + 9],
-                        csvOperations.teamDataList[i + 10],
-                        csvOperations.teamDataList[i + 11],
-                        csvOperations.teamDataList[i + 12],
-                        csvOperations.teamDataList[i + 13],
-                        csvOperations.teamDataList[i + 14],
-                        csvOperations.teamDataList[i + 15],
-                        csvOperations.teamDataList[i + 16],
-                        csvOperations.teamDataList[i + 17],
-                        csvOperations.teamDataList[i + 18],
-                        csvOperations.teamDataList[i + 19],
-                        csvOperations.teamDataList[i + 20],
-                        csvOperations.teamDataList[i + 21],
                     )
                 )
-                i += 21
+                i += 3
                 cnt++
             } while (cnt < lim)
         }

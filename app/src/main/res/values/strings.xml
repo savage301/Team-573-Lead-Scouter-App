@@ -4,7 +4,7 @@
     <string name="match">Match Number</string>
     <string name="team">Team Number</string>
     <string name="score">Score</string>
-    <string name="bool">Boolean</string>
+    <string name="bool">Breakdown</string>
     <string name="comment">Comment</string>
     <string name="table_view">Click to go back to table view</string>
     <string name="delete">Click to delete data.csv</string>

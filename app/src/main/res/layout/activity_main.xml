@@ -9,7 +9,9 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-26dp">
 
         <Button
             android:id="@+id/scanner_view"
@@ -83,6 +85,8 @@
             android:paddingStart="@dimen/_5sdp"
             android:paddingEnd="@dimen/_5sdp"
             android:text="@string/score"
+            android:visibility="gone"
+
             android:textAlignment="center"
             android:textColor="#000000" />
 
@@ -107,6 +111,8 @@
             android:layout_column="4"
             android:layout_gravity="center_horizontal"
             android:layout_weight="1"
+            android:visibility="gone"
+
             android:gravity="center"
             android:paddingStart="@dimen/_5sdp"
             android:paddingEnd="@dimen/_5sdp"

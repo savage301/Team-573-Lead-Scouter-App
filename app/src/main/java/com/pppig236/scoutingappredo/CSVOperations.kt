@@ -27,27 +27,8 @@ class CSVOperations {
             val rows: List<Map<String, String>> = csvReader().readAllWithHeader(file)
             for (column in rows) {
                 column["Match Number"]?.let { teamDataList.add(it) }
-                column["Alliance"]?.let { teamDataList.add(it) }
                 column["Team Number"]?.let { teamDataList.add(it) }
-                column["Auto High Cone"]?.let { teamDataList.add(it) }
-                column["Auto Mid Cone"]?.let { teamDataList.add(it) }
-                column["Auto High Cone"]?.let { teamDataList.add(it) }
-                column["Auto High Cube"]?.let { teamDataList.add(it) }
-                column["Auto High Cube"]?.let { teamDataList.add(it) }
-                column["Auto High Cube"]?.let { teamDataList.add(it) }
-                column["Auto Charge Station"]?.let { teamDataList.add(it) }
-                column["Tele High Cone"]?.let { teamDataList.add(it) }
-                column["Tele Mid Cone"]?.let { teamDataList.add(it) }
-                column["Tele High Cone"]?.let { teamDataList.add(it) }
-                column["Tele High Cube"]?.let { teamDataList.add(it) }
-                column["Tele High Cube"]?.let { teamDataList.add(it) }
-                column["Tele High Cube"]?.let { teamDataList.add(it) }
-                column["Links"]?.let { teamDataList.add(it) }
-                column["Tele Charge Station"]?.let { teamDataList.add(it) }
-                column["Penalties"]?.let { teamDataList.add(it) }
                 column["Robot Breakdown"]?.let { teamDataList.add(it) }
-                column["Defense"]?.let { teamDataList.add(it) }
-                column["Comment"]?.let { teamDataList.add(it) }
             }
         }
     }

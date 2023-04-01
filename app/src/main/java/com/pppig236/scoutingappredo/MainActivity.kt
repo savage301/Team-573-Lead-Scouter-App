@@ -10,6 +10,7 @@ import android.provider.Settings
 import android.view.View
 import android.widget.Button
 import android.widget.TableRow
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -68,11 +69,23 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonDelete.setOnClickListener {
-            showHide(buttonDelete)
-            csvOperations.deleteCsv(constants.file)
-            createCsv()
-            userList.clear() // make sure there are no leftovers
-            updateTable()
+            val builder = AlertDialog.Builder(this)
+            builder.setMessage("Deleting data is permanent\nAre you sure?")
+            builder.setPositiveButton("Yes") { _, _ ->
+                // handle yes click
+                // perform action if user selects "Yes"
+                csvOperations.deleteCsv(constants.file)
+                createCsv()
+                userList.clear() // make sure there are no leftovers
+                updateTable()
+                showHide(buttonDelete)
+            }
+            builder.setNegativeButton("No") { _, _ ->
+                // handle no click
+                // perform action if user selects "No"
+            }
+            val dialog = builder.create()
+            dialog.show()
         }
     }
 

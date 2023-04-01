@@ -23,7 +23,7 @@
 
         <Button
             android:id="@+id/table_view"
-            android:layout_width="wrap_content"
+            android:layout_width="251dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_43sdp"
             android:text="@string/table_view"
@@ -31,8 +31,8 @@
 
         <Button
             android:id="@+id/delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="71dp"
             android:layout_margin="@dimen/_45sdp"
             android:text="@string/delete"
             android:translationY="@dimen/_450sdp" />
@@ -58,8 +58,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/match"
-            android:textAlignment="center"
-            android:textColor="#000000" />
+            android:textAlignment="center" />
 
         <TextView
             style="@style/table_header"
@@ -71,8 +70,7 @@
             android:paddingStart="@dimen/_5sdp"
             android:paddingEnd="@dimen/_5sdp"
             android:text="@string/team"
-            android:textAlignment="center"
-            android:textColor="#000000" />
+            android:textAlignment="center" />
 
         <TextView
             style="@style/table_header"
@@ -86,8 +84,6 @@
             android:paddingEnd="@dimen/_5sdp"
             android:text="@string/score"
             android:textAlignment="center"
-
-            android:textColor="#000000"
             android:visibility="gone" />
 
         <TextView
@@ -101,31 +97,15 @@
             android:paddingStart="@dimen/_5sdp"
             android:paddingEnd="@dimen/_5sdp"
             android:text="@string/bool"
-            android:textAlignment="center"
-            android:textColor="#000000" />
+            android:textAlignment="center" />
 
-        <TextView
-            style="@style/table_header"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_column="4"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:gravity="center"
-
-            android:paddingStart="@dimen/_5sdp"
-            android:paddingEnd="@dimen/_5sdp"
-            android:text="@string/comment"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:visibility="gone" />
 
     </TableRow>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/table_recycler_view"
-        android:layout_width="394dp"
-        android:layout_height="433dp"
+        android:layout_width="351dp"
+        android:layout_height="406dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/table_heading_layout">

@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">ScoutingAppRemake</string>
-    <string name="scanner_fragment">Click to open the scanner</string>
-    <string name="match">Match Number</string>
-    <string name="team">Team Number</string>
+    <string name="scanner_fragment">Scanner</string>
+    <string name="match">Match #</string>
+    <string name="team">Team #</string>
     <string name="score">Score</string>
     <string name="bool">Breakdown</string>
     <string name="comment">Comment</string>
-    <string name="table_view">Click to go back to table view</string>
-    <string name="delete">Click to delete data.csv</string>
+    <string name="table_view">Table view</string>
+    <string name="delete">Delete data</string>
 </resources>

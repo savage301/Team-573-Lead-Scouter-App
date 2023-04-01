@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ScoutingAppRemake</string>
+    <string name="app_name">Scouting App 2023</string>
     <string name="scanner_fragment">Scanner</string>
     <string name="match">Match #</string>
     <string name="team">Team #</string>
@@ -8,4 +8,6 @@
     <string name="comment">Comment</string>
     <string name="table_view">Table view</string>
     <string name="delete">Delete data</string>
+    <string name="first_logo">FIRST Logo</string>
+    <string name="_573_logo_2023">573 Logo 2023</string>
 </resources>

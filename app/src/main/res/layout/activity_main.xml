@@ -36,6 +36,20 @@
             android:layout_margin="@dimen/_45sdp"
             android:text="@string/delete"
             android:translationY="@dimen/_450sdp" />
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="500dp"
+            android:layout_height="24dp"
+            android:src="@drawable/frc_logo"
+            android:contentDescription="@string/first_logo" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="572dp"
+            android:layout_height="24dp"
+            android:src="@drawable/icon"
+            android:contentDescription="@string/_573_logo_2023" />
     </FrameLayout>
 
     <TableRow
